@@ -50,21 +50,21 @@ export interface AirQualityData {
   };
 }
 
-// 📦 API Call
+// 📦 Main weather fetcher
 export const fetchWeatherData = async (city: string) => {
   try {
-    // 1. Get coordinates
+    // 1. Get exact coordinates from city name
     const geoRes = await axios.get(
-      `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`
+      `https://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(city)}&limit=1&appid=${apiKey}`
     );
 
-    if (geoRes.data.length === 0) {
+    if (!geoRes.data || geoRes.data.length === 0) {
       throw new Error("City not found");
     }
 
-    const { lat, lon } = geoRes.data[0];
+    const { lat, lon, name: resolvedName } = geoRes.data[0];
 
-    // 2. Get current weather
+    // 2. Get current weather by coordinates
     const weatherRes = await axios.get(
       `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`
     );
@@ -79,8 +79,14 @@ export const fetchWeatherData = async (city: string) => {
       `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${apiKey}`
     );
 
+    // Override the city name with the one user typed
+    const customWeatherData: WeatherData = {
+      ...weatherRes.data,
+      name: city.trim(), // <- force it to show user-input city
+    };
+
     return {
-      current: weatherRes.data as WeatherData,
+      current: customWeatherData,
       forecast: forecastRes.data.list.slice(0, 5) as ForecastItem[],
       airQuality: airRes.data.list[0] as AirQualityData,
     };

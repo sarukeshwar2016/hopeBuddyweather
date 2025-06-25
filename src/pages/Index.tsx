@@ -35,7 +35,7 @@ const Index = () => {
       setForecast(data.forecast);
       setAirQuality(data.airQuality);
     } catch (err) {
-      setError("Failed to fetch weather data. Please try again.");
+      setError("Enter a Valid City");
       console.error("Weather fetch error:", err);
     } finally {
       setLoading(false);
