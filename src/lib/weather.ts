@@ -1,8 +1,5 @@
 import axios from "axios";
-
-// 🌦️ API key for OpenWeather (replace with your actual one)
-const apiKey = "db089c38f7285399d2a5b864a283ea01";
-
+const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY; // ✅
 // Interfaces for type safety
 export interface WeatherData {
   name: string;
