@@ -1,2 +1,2 @@
-cd pixel-realm
+cd weatherly
 npm run dev
