@@ -29,8 +29,7 @@ const Navigation = () => {
           <div className="flex items-center space-x-4">
             <a
           href="https://meriumeedai.in"
-          target="_blank"
-          rel="noopener noreferrer"
+
           className="bg-blue-900 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-800 transition-colors"
 >         Safe Mode
           </a>
