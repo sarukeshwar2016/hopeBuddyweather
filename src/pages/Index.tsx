@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Search } from "lucide-react";
 import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
@@ -19,6 +19,11 @@ const Index = () => {
   const [airQuality, setAirQuality] = useState<AirQualityData | null>(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
+  // Set the page title
+  useEffect(() => {
+    document.title = "Weatherly";
+  }, []);
 
   const handleGetWeather = async () => {
     if (!city.trim()) {
@@ -111,15 +116,15 @@ const Index = () => {
             {!currentWeather && !loading && (
               <div className="bg-cream rounded-2xl p-8 shadow-lg text-center">
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                  Welcome to HopeBuddy Weather
+                  Welcome to Weatherly
                 </h2>
                 <p className="text-gray-800 text-lg leading-relaxed">
                   Stay informed with real-time weather updates tailored to your location.
-                  HopeBuddy Weather helps you track temperature, humidity, wind speed, air quality,
+                  Weatherly helps you track temperature, humidity, wind speed, air quality,
                   and future forecasts — all in one beautifully designed interface.
                   <br /><br />
                   Whether you're planning your day, scheduling travel, or just curious about the climate,
-                  HopeBuddy gives you the insights you need at a glance.
+                  Weatherly gives you the insights you need at a glance.
                   Start by entering any city in the search bar above and discover what the skies hold for you!
                 </p>
               </div>
@@ -128,10 +133,6 @@ const Index = () => {
 
           {/* Right Column Spacer */}
           <div className="w-full min-h-[80px] sm:min-h-[100px] md:min-h-[120px] lg:min-h-[300px] xl:min-h-[900px]" />
-
-
-
-
         </div>
       </main>
 

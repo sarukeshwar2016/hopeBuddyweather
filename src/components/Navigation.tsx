@@ -8,21 +8,24 @@ const Navigation = () => {
     <header className="bg-darkbrown shadow-md text-white overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
+          {/* Logo and Brand Name */}
           <div className="flex items-center space-x-2">
             <img
-              src="https://cdn.builder.io/api/v1/assets/77cbb1a1d74e4a5aa6cb648d4c6c25f0/image-b1875f?format=webp&width=800"
-              alt="HopeBuddy Logo"
+              src="/weatherly-logo.png"
+              alt="Weatherly Logo"
               className="w-8 h-8"
             />
-            <span className="font-semibold text-lg">HopeBuddy</span>
+            <span className="font-semibold text-lg">Weatherly</span>
           </div>
 
+          {/* Navigation Links (Desktop) */}
           <nav className="hidden md:flex items-center space-x-10">
             <a href="#" className="hover:text-gray-100 transition-colors">Home</a>
             <a href="#" className="hover:text-gray-100 transition-colors">About</a>
             <a href="#" className="hover:text-gray-100 transition-colors">Contact</a>
           </nav>
 
+          {/* Right Controls */}
           <div className="flex items-center space-x-4">
             <button className="bg-blue-900 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-800 transition-colors">
               Safe Mode
@@ -37,6 +40,7 @@ const Navigation = () => {
         </div>
       </div>
 
+      {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden bg-darkbrown px-4 pt-2 pb-4 space-y-2">
           <a href="#" className="block text-sm hover:text-gray-100">Home</a>
