@@ -17,12 +17,8 @@ const Footer = () => {
           >
             Powered by OpenWeather
           </a>
-          <a href="#" className="hover:underline">
-            Privacy Policy
-          </a>
-          <a href="#" className="hover:underline">
-            Contact
-          </a>
+          <a href="#" className="hover:underline">Privacy Policy</a>
+          <a href="#" className="hover:underline">Contact</a>
         </div>
       </div>
     </footer>

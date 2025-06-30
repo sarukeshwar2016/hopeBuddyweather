@@ -49,10 +49,8 @@ const Index = () => {
 
   return (
     <div
-      className="min-h-screen bg-cover bg-center bg-no-repeat flex flex-col"
-      style={{
-        backgroundImage: "url('/background.jpeg')",
-      }}
+      className="min-h-screen bg-no-repeat bg-cover bg-center flex flex-col 
+                 bg-[url('/mobile-bg.jpeg')] md:bg-[url('/background.jpeg')]"
     >
       <Navigation />
 
@@ -62,7 +60,7 @@ const Index = () => {
           <div className="lg:col-span-2 space-y-6">
             {/* Search */}
             <div className="bg-white/20 backdrop-blur-md rounded-2xl p-6 border border-white/40 shadow-lg">
-              <form onSubmit={handleSubmit} className="flex gap-3">
+              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
                 <input
                   type="text"
                   value={city}
@@ -73,7 +71,7 @@ const Index = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="bg-orange-500 hover:bg-orange-600 disabled:opacity-50 text-white px-6 py-3 rounded-2xl font-medium transition-colors flex items-center gap-2"
+                  className="bg-orange-500 hover:bg-orange-600 disabled:opacity-50 text-white px-6 py-3 rounded-2xl font-medium transition-colors flex items-center justify-center gap-2"
                 >
                   {loading ? (
                     <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -129,7 +127,11 @@ const Index = () => {
           </div>
 
           {/* Right Column Spacer */}
-          <div className="flex justify-center items-end w-full min-h-[900px]" />
+          <div className="w-full min-h-[80px] sm:min-h-[100px] md:min-h-[120px] lg:min-h-[300px] xl:min-h-[900px]" />
+
+
+
+
         </div>
       </main>
 

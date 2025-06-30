@@ -22,20 +22,20 @@ const AirQualityCard: React.FC<AirQualityCardProps> = ({ airQuality }) => {
   };
 
   return (
-    <div className="space-y-3 mt-6 w-[300px] -ml-2">
+    <div className="space-y-3 mt-6 w-full max-w-md mx-auto px-4 sm:px-0">
       {/* Title */}
-      <h3 className="text-2xl font-bold text-[#000000] flex items-center justify-start leading-none mb-8"> {/* Added mb-2 */}
-  <span className="mr-2 text-2xl">🏭</span>
-  Air Pollution Index
-</h3>
+      <h3 className="text-xl sm:text-2xl font-bold text-[#000000] flex items-center justify-start leading-none mb-6">
+        <span className="mr-2 text-xl sm:text-2xl">🏭</span>
+        Air Pollution Index
+      </h3>
 
-      {/* Card moved down */}
-      <ScrollArea className="h-[300px] rounded-2xl mt-12"> {/* Increased mt-4 to mt-8 */}
+      {/* Card */}
+      <ScrollArea className="h-[300px] rounded-2xl">
         <div
-          className="rounded-2xl p-3 border border-white/40 shadow-lg"
+          className="rounded-2xl p-4 border border-white/40 shadow-lg"
           style={{ backgroundColor: "#fefae0" }}
         >
-          <div className="space-y-3">
+          <div className="space-y-4">
             <div className="text-center">
               <div className="text-sm mb-1 text-[#7d3705] font-bold">
                 Air Quality
@@ -53,7 +53,7 @@ const AirQualityCard: React.FC<AirQualityCardProps> = ({ airQuality }) => {
             </div>
 
             {/* Pollutant Data */}
-            <div className="grid grid-cols-3 gap-3 pt-3 border-t border-white/30">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-t border-white/30">
               <div className="text-center">
                 <div className="text-sm uppercase tracking-wide text-[#7d3705]">
                   CO

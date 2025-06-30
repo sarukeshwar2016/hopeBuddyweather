@@ -1,12 +1,13 @@
-import React from "react";
-import { Search } from "lucide-react";
+import React, { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 const Navigation = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <header className="bg-darkbrown shadow-md text-white">
+    <header className="bg-darkbrown shadow-md text-white overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo and Brand */}
           <div className="flex items-center space-x-2">
             <img
               src="https://cdn.builder.io/api/v1/assets/77cbb1a1d74e4a5aa6cb648d4c6c25f0/image-b1875f?format=webp&width=800"
@@ -16,31 +17,33 @@ const Navigation = () => {
             <span className="font-semibold text-lg">HopeBuddy</span>
           </div>
 
-          {/* Navigation Links */}
           <nav className="hidden md:flex items-center space-x-10">
-            <a href="#" className="hover:text-gray-100 transition-colors">
-              Home
-            </a>
-            <a href="#" className="hover:text-gray-100 transition-colors">
-              About
-            </a>
-            <a href="#" className="hover:text-gray-100 transition-colors">
-              Contact
-            </a>
+            <a href="#" className="hover:text-gray-100 transition-colors">Home</a>
+            <a href="#" className="hover:text-gray-100 transition-colors">About</a>
+            <a href="#" className="hover:text-gray-100 transition-colors">Contact</a>
           </nav>
 
-          {/* Actions */}
           <div className="flex items-center space-x-4">
-            {/* Example: Add a Search button or icon if needed */}
-            {/* <button className="p-2 hover:bg-white/10 rounded-full transition-colors">
-              <Search className="w-5 h-5" />
-            </button> */}
             <button className="bg-blue-900 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-800 transition-colors">
               Safe Mode
+            </button>
+            <button
+              className="md:hidden focus:outline-none"
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
       </div>
+
+      {menuOpen && (
+        <div className="md:hidden bg-darkbrown px-4 pt-2 pb-4 space-y-2">
+          <a href="#" className="block text-sm hover:text-gray-100">Home</a>
+          <a href="#" className="block text-sm hover:text-gray-100">About</a>
+          <a href="#" className="block text-sm hover:text-gray-100">Contact</a>
+        </div>
+      )}
     </header>
   );
 };
