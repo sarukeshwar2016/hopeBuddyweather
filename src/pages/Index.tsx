@@ -54,8 +54,14 @@ const Index = () => {
 
   return (
     <div
-      className="min-h-screen bg-no-repeat bg-cover bg-center flex flex-col 
-                 bg-[url('/mobile-bg.jpeg')] md:bg-[url('/background.jpeg')]"
+      className="min-h-screen bg-no-repeat bg-cover bg-center flex flex-col
+                  bg-[url('/mobile-bg.jpeg')]        // phones (default <640px)
+                  sm:bg-[url('/tablet-bg.jpeg')]     // small tablets ≥640px
+                  md:bg-[url('/tablet-bg.jpeg')]     // medium tablets ≥768px
+                  lg:bg-[url('/tablet-bg.jpeg')]     // large tablets / iPad Pro ≥1024px
+                  xl:bg-[url('/background.jpeg')]"   // desktops ≥1280px
+
+
     >
       <Navigation />
 
